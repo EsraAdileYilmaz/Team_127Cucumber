@@ -32,6 +32,9 @@ public class SaucedemoPage {
     @FindBy(id = "continue-shopping")
     public WebElement continueShoppingButonu;//alisverise devam butonu
 
+    @FindBy(className = "inventory_item_name")
+    public WebElement sepettekiUrunIsimElementi;
+
 
 
 

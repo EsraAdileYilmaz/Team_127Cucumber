@@ -3,15 +3,27 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.TestOtomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestotomasyonuStepdefinitions {
 
     TestOtomasyonuPage testOtomasyonuPage=new TestOtomasyonuPage();
+    Sheet sayfa2;
+    int actualStokMiktari;
 
     @Given("kullanici testotomasyonu anasayfaya gider")
     public void kullanici_testotomasyonu_anasayfaya_gider() {
@@ -105,5 +117,124 @@ public class TestotomasyonuStepdefinitions {
     @And("sisteme giris yapamadigini test eder")
     public void sistemeGirisYapamadiginiTestEder(){
         Assert.assertTrue(testOtomasyonuPage.emailKutusu.isDisplayed());//email kutusu hala gorunuyorsa giris yapilamamistir
+    }
+
+    @When("email olarak listede verilen {string} girer")
+    public void emailOlarakListedeVerilenGirer(String verilenEmail) {
+
+        testOtomasyonuPage.emailKutusu.sendKeys(verilenEmail);
+    }
+
+    @And("password olarak listede verilen {string} girer")
+    public void passwordOlarakListedeVerilenGirer(String verilenPassword) {
+        testOtomasyonuPage.passwordKutusu.sendKeys(verilenPassword);
+    }
+
+    @Then("stok excelindeki {string} daki urunun stok miktarini bulur")
+    public void stokExcelindekiDakiUrununStokMiktariniBulur(String satirNo) {
+        // excel'de istenen satira gidip
+        // satirdaki urun ismini aldik
+        // ve aldigimiz urun ismini testotomasyonu.com'da aratip
+        // sonucunu actual stok sayisini(actualStokMiktari olarak) kaydettik
+
+        String dosyaYolu="src/test/java/utilities/stok.xlsx";
+        Workbook workbook;
+        try {
+            FileInputStream fileInputStream=new FileInputStream(dosyaYolu);
+            workbook= WorkbookFactory.create(fileInputStream);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        sayfa2=workbook.getSheet("Sayfa2");
+        String satirdakiUrunIsmi = sayfa2.getRow(Integer.parseInt(satirNo)-1) .getCell(0).toString();
+        //burada satirdaki urunlere ulasip onlari kaydettik
+
+        testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);//excel listesindeki urunleri testotomasyonunda aratip urunu bulucaz
+        actualStokMiktari = testOtomasyonuPage.bulunanUrunElementleriList.size();//testotomasyonundaki bulunan urun miktari
+    }
+
+    @And("stok miktarinin {string} da verilen stok miktarindan fazla oldugunu test eder")
+    public void stokMiktarininDaVerilenStokMiktarindanFazlaOldugunuTestEder(String verilenSatir) {
+
+        // yine istenen satira gidip
+        // o satirda belirlenen min stok miktarini aldik
+        // ve bir onceki adimda buldugumuz actualStokMiktari ile karsilastirip
+        // testimizi yaptik
+
+        String dosyaYolu="src/test/java/utilities/stok.xlsx";
+        Workbook workbook;
+        try {
+            FileInputStream fileInputStream=new FileInputStream(dosyaYolu);
+            workbook= WorkbookFactory.create(fileInputStream);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        sayfa2=workbook.getSheet("Sayfa2");
+
+        String minStokMiktariStr = sayfa2
+                                   .getRow(Integer.parseInt(verilenSatir)-1)
+                                   .getCell(1).toString();//verilen satira gittik ama string olarak
+        System.out.println(minStokMiktariStr);
+        int minStokMiktari = (int) Double.parseDouble(minStokMiktariStr);
+
+        Assert.assertTrue(actualStokMiktari >= minStokMiktari);
+
+
+    }
+
+    @Then("stok excelindeki tum urunleri aratip, min stok miktarinda urun olanlari listeler")
+    public void stokExcelindekiTumUrunleriArtipMinStokMiktarindaUrunOlanlariListeler() {
+
+        String dosyaYolu="src/test/java/utilities/stok.xlsx";
+        Workbook workbook;
+        try {
+            FileInputStream fileInputStream=new FileInputStream(dosyaYolu);
+            workbook= WorkbookFactory.create(fileInputStream);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        sayfa2=workbook.getSheet("Sayfa2");
+
+        int stokExceliSonSatirNo = sayfa2.getLastRowNum();
+
+        String satirdakiUrunIsmi;
+        int satirdakiUrunMinStok;
+        int arananUrunUygulamadaBulunanSonucSayisi;
+        List<String> yeterliStokOlanlarListesi = new ArrayList<>();
+        List<String> yeterliStokOlmayanlarListesi = new ArrayList<>();
+
+        for (int i = 1; i <=stokExceliSonSatirNo ; i++) {
+
+            satirdakiUrunIsmi = sayfa2
+                    .getRow(i)
+                    .getCell(0)
+                    .toString();
+
+            satirdakiUrunMinStok = (int)Double.parseDouble(sayfa2
+                    .getRow(i)
+                    .getCell(1)
+                    .toString());
+
+            testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);
+            arananUrunUygulamadaBulunanSonucSayisi = testOtomasyonuPage.bulunanUrunElementleriList.size();
+
+            if (arananUrunUygulamadaBulunanSonucSayisi>=satirdakiUrunMinStok){
+                yeterliStokOlanlarListesi.add(satirdakiUrunIsmi);
+            }else{
+                yeterliStokOlmayanlarListesi.add(satirdakiUrunIsmi);
+            }
+
+        }
+
+        System.out.println("Yeterli stok olan urunler : " + yeterliStokOlanlarListesi);
+        System.out.println("Yeterli stok OLMAYAN urunler : " + yeterliStokOlmayanlarListesi);
+
+
     }
 }

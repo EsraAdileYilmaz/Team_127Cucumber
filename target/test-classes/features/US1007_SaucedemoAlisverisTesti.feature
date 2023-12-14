@@ -1,6 +1,6 @@
 Feature:  US1007 Kullanicinin alisveris sepetine ekledigi urun testi
 
-  @wip
+
   Scenario:TC13 sepete dogru urun eklenmeli
 
     Given kullanici "saucedemoUrl" anasayfaya gider
@@ -16,3 +16,4 @@ Feature:  US1007 Kullanicinin alisveris sepetine ekledigi urun testi
     And sectigi urunun basarili olarak sepete eklendigini test eder
     And 2 saniye bekler
     And sayfayi kapatir
+

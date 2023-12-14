@@ -9,7 +9,7 @@ Feature: US1002 Kullanici parametre ile verdigi urunu aratabilmeli
     Then sayfayi kapatir
 
 
-  Scenario: TC05 Kullanici java arattiginda sonuc bulamamali
+  Scenario: TC05 Kullanici cucumber arattiginda sonuc bulamamali
 
     Given kullanici "toUrl" anasayfaya gider
     Then arama kutusuna "cucumber" yazip ENTER tusuna basar

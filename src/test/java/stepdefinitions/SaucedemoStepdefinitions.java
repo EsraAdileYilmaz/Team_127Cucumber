@@ -44,7 +44,9 @@ public class SaucedemoStepdefinitions {
     }
     @Then("sectigi urunun basarili olarak sepete eklendigini test eder")
     public void sectigi_urunun_basarili_olarak_sepete_eklendigini_test_eder() {
-        Assert.assertTrue(saucedemoPage.continueShoppingButonu.isDisplayed());
+       String actualSepettekiUrunIsmi=saucedemoPage.sepettekiUrunIsimElementi.getText();
+       Assert.assertEquals(ilkUrunIsim,actualSepettekiUrunIsmi);
+       //sepetteki urunun ismi ile sectigimiz urunun ismi ayni mi diye karsilastiriyoruz .
     }
 
 
