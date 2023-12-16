@@ -140,6 +140,7 @@ public class TestotomasyonuStepdefinitions {
         String dosyaYolu="src/test/java/utilities/stok.xlsx";//bu yolda bir dosya oldugunu gosterir
         Workbook workbook;
         try {
+
             FileInputStream fileInputStream=new FileInputStream(dosyaYolu);//var olan dosyanin icini okuma objesi
             workbook= WorkbookFactory.create(fileInputStream);//icini okudugumuz dosyayi kopya excele atadik
 
@@ -179,7 +180,7 @@ public class TestotomasyonuStepdefinitions {
                                    .getRow(Integer.parseInt(verilenSatir)-1)
                                    .getCell(1).toString();//verilen satira gittik ama string olarak
         System.out.println(minStokMiktariStr);
-        int minStokMiktari = (int) Double.parseDouble(minStokMiktariStr);
+        int minStokMiktari = (int) Double.parseDouble(minStokMiktariStr);//5.0
 
         Assert.assertTrue(actualStokMiktari >= minStokMiktari);
 
@@ -206,6 +207,7 @@ public class TestotomasyonuStepdefinitions {
         String satirdakiUrunIsmi;
         int satirdakiUrunMinStok;//aranan urunun excel icinde bulunan miktari
         int arananUrunUygulamadaBulunanSonucSayisi;//aranan urunun websitesinde bulunan miktari
+
         List<String> yeterliStokOlanlarListesi = new ArrayList<>();
         List<String> yeterliStokOlmayanlarListesi = new ArrayList<>();
 
