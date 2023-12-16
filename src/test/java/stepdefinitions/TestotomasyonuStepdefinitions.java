@@ -229,7 +229,7 @@ public class TestotomasyonuStepdefinitions {
             if (arananUrunUygulamadaBulunanSonucSayisi >= satirdakiUrunMinStok){
                 yeterliStokOlanlarListesi.add(satirdakiUrunIsmi);
             }else{
-                yeterliStokOlmayanlarListesi.add(satirdakiUrunIsmi);
+                yeterliStokOlmayanlarListesi.add(satirdakiUrunIsmi);//listeye ekliyoruz
             }
 
         }
