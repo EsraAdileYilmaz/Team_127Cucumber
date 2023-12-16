@@ -1,13 +1,7 @@
 Feature: US1008 Kullanici sayfadaki butonlari test eder
 
-  #Background: baslangictaki ortak adimlar buraya yazilabilir
-  #    Given kullanici "toUrl" anasayfaya gider.(US1003 te)
-  # yukardaki bu iki satir ile, olusturulan her UserStorynin ilk adiminda
-  # koda ihtiyac duyulmadan run edilince verilen websitesinin anasayfasina gider.
 
-
-
-
+    @P1
   Scenario: TC14 Kullanici add ve delete butonlarinin calistigini test eder
 
     Given kullanici "heroUrl" anasayfaya gider

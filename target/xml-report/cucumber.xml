@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="43.731" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="US1007 Kullanicinin alisveris sepetine ekledigi urun testi" name="TC13 sepete dogru urun eklenmeli" time="22.837">
+<system-out><![CDATA[
+Given kullanici "saucedemoUrl" anasayfaya gider.............................passed
+And 2 saniye bekler.........................................................passed
+Then saucedemo username kutusuna "standard_user" yazar......................passed
+And saucedemo password kutusuna "secret_sauce" yazar........................passed
+Then saucedemo login tusuna basar...........................................passed
+And ilk urunun ismini kaydeder ve bu urunun sayfasina gider.................passed
+When saucedemo add to Cart butonuna basar...................................passed
+Then saucedemo alisveris sepetine tiklar....................................passed
+And sectigi urunun basarili olarak sepete eklendigini test eder.............passed
+And sayfayi kapatir.........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1014 Scenario failed oldugunda fotograf cekilmeli" name="TC20 kullanici testotomasyonu sayfasinda Nutella bulabilmeli" time="20.812">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then arama kutusuna "nutella" yazip ENTER tusuna basar......................passed
+And arama sonucunda urun bulunamadigini test eder...........................passed
+And sayfayi kapatir.........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

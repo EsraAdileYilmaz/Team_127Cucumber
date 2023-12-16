@@ -1,7 +1,7 @@
 Feature: US1012 Excel olarak verilen urunler ve min. stok miktarlari testi
 
 
-  @wip
+
   Scenario Outline: : TC18 excel olarak verilen listedeki urunler min. stok bulundurmali
 
     Given kullanici "toUrl" anasayfaya gider

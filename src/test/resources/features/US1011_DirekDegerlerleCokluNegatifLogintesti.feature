@@ -1,6 +1,7 @@
 Feature:  US1011 scenario'da verilen yanlis bilgilerle negatif login testi
 
 
+
   Scenario Outline: TC17 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali
 
     Given kullanici "toUrl" anasayfaya gider

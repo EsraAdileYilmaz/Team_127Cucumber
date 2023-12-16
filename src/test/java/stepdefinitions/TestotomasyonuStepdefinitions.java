@@ -137,11 +137,11 @@ public class TestotomasyonuStepdefinitions {
         // ve aldigimiz urun ismini testotomasyonu.com'da aratip
         // sonucunu actual stok sayisini(actualStokMiktari olarak) kaydettik
 
-        String dosyaYolu="src/test/java/utilities/stok.xlsx";
+        String dosyaYolu="src/test/java/utilities/stok.xlsx";//bu yolda bir dosya oldugunu gosterir
         Workbook workbook;
         try {
-            FileInputStream fileInputStream=new FileInputStream(dosyaYolu);
-            workbook= WorkbookFactory.create(fileInputStream);
+            FileInputStream fileInputStream=new FileInputStream(dosyaYolu);//var olan dosyanin icini okuma objesi
+            workbook= WorkbookFactory.create(fileInputStream);//icini okudugumuz dosyayi kopya excele atadik
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -152,7 +152,7 @@ public class TestotomasyonuStepdefinitions {
         //burada satirdaki urunlere ulasip onlari kaydettik
 
         testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);//excel listesindeki urunleri testotomasyonunda aratip urunu bulucaz
-        actualStokMiktari = testOtomasyonuPage.bulunanUrunElementleriList.size();//testotomasyonundaki bulunan urun miktari
+        actualStokMiktari = testOtomasyonuPage.bulunanUrunElementleriList.size();//satirdaki urunun testotomasyonundaki bulunan miktarini verir
     }
 
     @And("stok miktarinin {string} da verilen stok miktarindan fazla oldugunu test eder")
@@ -201,30 +201,30 @@ public class TestotomasyonuStepdefinitions {
 
         sayfa2=workbook.getSheet("Sayfa2");
 
-        int stokExceliSonSatirNo = sayfa2.getLastRowNum();
+        int stokExceliSonSatirNo = sayfa2.getLastRowNum();//sayfa2 deki enson urun stok numarasini verir
 
         String satirdakiUrunIsmi;
-        int satirdakiUrunMinStok;
-        int arananUrunUygulamadaBulunanSonucSayisi;
+        int satirdakiUrunMinStok;//aranan urunun excel icinde bulunan miktari
+        int arananUrunUygulamadaBulunanSonucSayisi;//aranan urunun websitesinde bulunan miktari
         List<String> yeterliStokOlanlarListesi = new ArrayList<>();
         List<String> yeterliStokOlmayanlarListesi = new ArrayList<>();
 
         for (int i = 1; i <=stokExceliSonSatirNo ; i++) {
 
             satirdakiUrunIsmi = sayfa2
-                    .getRow(i)
-                    .getCell(0)
-                    .toString();
+                               .getRow(i)
+                               .getCell(0)
+                               .toString();//tum satirlarin 0. hucresi
 
             satirdakiUrunMinStok = (int)Double.parseDouble(sayfa2
-                    .getRow(i)
-                    .getCell(1)
-                    .toString());
+                                   .getRow(i)
+                                   .getCell(1)
+                                   .toString());//tum satirlarin 1. hucresi
 
             testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);
             arananUrunUygulamadaBulunanSonucSayisi = testOtomasyonuPage.bulunanUrunElementleriList.size();
 
-            if (arananUrunUygulamadaBulunanSonucSayisi>=satirdakiUrunMinStok){
+            if (arananUrunUygulamadaBulunanSonucSayisi >= satirdakiUrunMinStok){
                 yeterliStokOlanlarListesi.add(satirdakiUrunIsmi);
             }else{
                 yeterliStokOlmayanlarListesi.add(satirdakiUrunIsmi);
@@ -232,8 +232,8 @@ public class TestotomasyonuStepdefinitions {
 
         }
 
-        System.out.println("Yeterli stok olan urunler : " + yeterliStokOlanlarListesi);
-        System.out.println("Yeterli stok OLMAYAN urunler : " + yeterliStokOlmayanlarListesi);
+        System.out.println("Yeterli stok olan urunler : " + yeterliStokOlanlarListesi);//Yeterli stok olan urunler : [samsung, apple, dress, chair, headphone]
+        System.out.println("Yeterli stok OLMAYAN urunler : " + yeterliStokOlmayanlarListesi);//Yeterli stok OLMAYAN urunler : [phone, nutella, shoes]
 
 
     }

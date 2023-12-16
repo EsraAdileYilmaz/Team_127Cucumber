@@ -1,5 +1,7 @@
 Feature: US1002 Kullanici parametre ile verdigi urunu aratabilmeli
 
+
+  @P2
   Scenario: TC04 Kullanici java arattiginda sonuc bulamamali
 
     Given kullanici testotomasyonu anasayfaya gider
@@ -9,6 +11,7 @@ Feature: US1002 Kullanici parametre ile verdigi urunu aratabilmeli
     Then sayfayi kapatir
 
 
+    @P1
   Scenario: TC05 Kullanici cucumber arattiginda sonuc bulamamali
 
     Given kullanici "toUrl" anasayfaya gider

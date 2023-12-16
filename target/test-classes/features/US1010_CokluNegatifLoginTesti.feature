@@ -1,7 +1,7 @@
 Feature: US1010 Kullanici verilen yanlis bilgilerle giris yapamaz
 
 
-
+  @P2
   Scenario Outline: TC16 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali
 
     Given kullanici "toUrl" anasayfaya gider
