@@ -20,6 +20,7 @@ public class GooglePage{
 
     @FindBy(xpath = "//div[@id='result-stats']")
     public WebElement sonucYaziElementi;
+    //burda locateler alindi
 
 
 
