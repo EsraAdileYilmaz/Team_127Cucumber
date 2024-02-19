@@ -21,7 +21,7 @@ import java.util.List;
 
 public class TestotomasyonuStepdefinitions {
 
-    TestOtomasyonuPage testOtomasyonuPage=new TestOtomasyonuPage();
+    TestOtomasyonuPage testOtomasyonuPage=new TestOtomasyonuPage();//Bu objeyi pages package'deki locatelere ulasmak icin olusturduk
     Sheet sayfa2;
     int actualStokMiktari;
 
@@ -152,14 +152,14 @@ public class TestotomasyonuStepdefinitions {
         String satirdakiUrunIsmi = sayfa2.getRow(Integer.parseInt(satirNo)-1) .getCell(0).toString();
         //burada satirdaki urunlere ulasip onlari kaydettik
 
-        testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);//excel listesindeki urunleri testotomasyonunda aratip urunu bulucaz
+        testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);//excel listesindeki urunleri testotomasyonunda aratip urunu bulucaz.
         actualStokMiktari = testOtomasyonuPage.bulunanUrunElementleriList.size();//satirdaki urunun testotomasyonundaki bulunan miktarini verir
     }
 
     @And("stok miktarinin {string} da verilen stok miktarindan fazla oldugunu test eder")
     public void stokMiktarininDaVerilenStokMiktarindanFazlaOldugunuTestEder(String verilenSatir) {
 
-        // yine istenen satira gidip
+        // yine excel'de istenen satira gidip
         // o satirda belirlenen min stok miktarini aldik
         // ve bir onceki adimda buldugumuz actualStokMiktari ile karsilastirip
         // testimizi yaptik

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="50.033" tests="3" skipped="0" failures="0" errors="0">
+<testcase classname="US1002 Kullanici parametre ile verdigi urunu aratabilmeli" name="TC05 Kullanici cucumber arattiginda sonuc bulamamali" time="22.593">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then arama kutusuna "cucumber" yazip ENTER tusuna basar.....................passed
+And arama sonucunda urun bulunamadigini test eder...........................passed
+And 2 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1004 Kullanici gecerli bilgilerle sisteme giris yapar" name="TC08 Gecerli bilgilerle sisteme giris yapilabilmeli" time="15.73">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then account butonuna basar.................................................passed
+And email olarak "toGecerliEmail" girer.....................................passed
+And password olarak "toGecerliPassword" girer...............................passed
+Then signIn butonuna basar..................................................passed
+And basarili giris yapilabildigini test eder................................passed
+And 3 saniye bekler.........................................................passed
+And sayfayi kapatir.........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1008 Kullanici sayfadaki butonlari test eder" name="TC14 Kullanici add ve delete butonlarinin calistigini test eder" time="11.624">
+<system-out><![CDATA[
+Given kullanici "heroUrl" anasayfaya gider..................................passed
+When kullanici Add Element butonuna basar...................................passed
+And 2 saniye bekler.........................................................passed
+And Delete butonu’nun gorunur oldugunu test eder............................passed
+Then Delete tusuna basar....................................................passed
+And Add Remove Elements yazisinin gorunur oldugunu test eder................passed
+And sayfayi kapatir.........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

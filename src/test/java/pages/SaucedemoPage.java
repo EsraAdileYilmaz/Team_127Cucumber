@@ -21,7 +21,7 @@ public class SaucedemoPage {
     public WebElement loginButton;
 
     @FindBy(xpath = "//div[text()='Sauce Labs Backpack']")
-    public WebElement ilkUrunIsim;
+    public WebElement ilkUrunIsimElementi;
 
     @FindBy(id="add-to-cart-sauce-labs-backpack")
     public WebElement addtocardButton;

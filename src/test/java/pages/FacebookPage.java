@@ -16,18 +16,6 @@ public class FacebookPage {
     @FindBy(xpath = "//button[@title='Autoriser tous les cookies']")
     public WebElement cookiesKabulButonu;
 
-    @FindBy(id="email")
-    public WebElement emailBox;
-
-    @FindBy(xpath = "//input[@id='pass']")
-    public WebElement passwordBox;
-
-    @FindBy(xpath = "//button[@name='login']")
-    public WebElement seconnecterButton;
-
-    @FindBy(xpath = "//*[@class='_9ay7']")
-    public WebElement message;
-
     @FindBy(xpath = "//*[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")
     public WebElement yeniHesapOlusturButonu;//créer nouveau compte
 

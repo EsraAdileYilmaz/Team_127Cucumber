@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="127.786" tests="7" skipped="0" failures="0" errors="0">
+<testcase classname="US1002 Kullanici parametre ile verdigi urunu aratabilmeli" name="TC04 Kullanici java arattiginda sonuc bulamamali" time="29.492">
+<system-out><![CDATA[
+Given kullanici testotomasyonu anasayfaya gider.............................passed
+Then arama kutusuna "java" yazip ENTER tusuna basar.........................passed
+And arama sonucunda urun bulunamadigini test eder...........................passed
+And 2 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1006 Faker Class'i ile Facebook kayit testi" name="TC12 Feyk bilgilerle facebook'a kayit yapilabilmeli" time="27.959">
+<system-out><![CDATA[
+Given kullanici "facebookUrl" anasayfaya gider..............................passed
+Then facebook cookies kabul eder............................................passed
+And facebook'da yeni hesap olustur butonuna basar...........................passed
+And 1 saniye bekler.........................................................passed
+When Faker class'indan bilgilerle facebook kayit formunu doldurur...........passed
+Then 2 saniye bekler........................................................passed
+And facebook kayit ol tusuna basar..........................................passed
+And sayfayi kapatir.........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1010 Kullanici verilen yanlis bilgilerle giris yapamaz" name="TC16 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali - Example #1.1" time="13.89">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then account butonuna basar.................................................passed
+When email olarak "toGecerliEmail" girer....................................passed
+And password olarak "toGecersizPassword" girer..............................passed
+Then signIn butonuna basar..................................................passed
+And sisteme giris yapamadigini test eder....................................passed
+And 1 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1010 Kullanici verilen yanlis bilgilerle giris yapamaz" name="TC16 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali - Example #1.2" time="15.51">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then account butonuna basar.................................................passed
+When email olarak "toGecersizEmail" girer...................................passed
+And password olarak "toGecerliPassword" girer...............................passed
+Then signIn butonuna basar..................................................passed
+And sisteme giris yapamadigini test eder....................................passed
+And 1 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1010 Kullanici verilen yanlis bilgilerle giris yapamaz" name="TC16 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali - Example #1.3" time="13.954">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then account butonuna basar.................................................passed
+When email olarak "toGecersizEmail" girer...................................passed
+And password olarak "toGecersizPassword" girer..............................passed
+Then signIn butonuna basar..................................................passed
+And sisteme giris yapamadigini test eder....................................passed
+And 1 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1010 Kullanici verilen yanlis bilgilerle giris yapamaz" name="TC16 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali - Example #1.4" time="13.429">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then account butonuna basar.................................................passed
+When email olarak "toGecersizEmail2" girer..................................passed
+And password olarak "toGecersizPassword2" girer.............................passed
+Then signIn butonuna basar..................................................passed
+And sisteme giris yapamadigini test eder....................................passed
+And 1 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="US1010 Kullanici verilen yanlis bilgilerle giris yapamaz" name="TC16 liste olarak verilen yanlis kullanici bilgileri ile giris yapilamamali - Example #1.5" time="13.44">
+<system-out><![CDATA[
+Given kullanici "toUrl" anasayfaya gider....................................passed
+Then account butonuna basar.................................................passed
+When email olarak "toGecersizEmail3" girer..................................passed
+And password olarak "toGecersizPassword3" girer.............................passed
+Then signIn butonuna basar..................................................passed
+And sisteme giris yapamadigini test eder....................................passed
+And 1 saniye bekler.........................................................passed
+Then sayfayi kapatir........................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

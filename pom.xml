@@ -173,7 +173,7 @@
                         <include>**/runners/*Runner*.java</include>
                         <!-- runners package altinda
                              calismasini istedigimiz Runner'larin
-                             isimlerindeki ortak bolumu yaziyoruz-->
+                             isimlerindeki ortak bolumu  *..* yildizlar arasina yaziyoruz-->
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>

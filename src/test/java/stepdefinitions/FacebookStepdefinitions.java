@@ -10,7 +10,7 @@ import utilities.Driver;
 
 public class FacebookStepdefinitions {
 
-    FacebookPage facebookPage=new FacebookPage();
+    FacebookPage facebookPage=new FacebookPage();//Bu objeyi pages package'deki locatelere ulasmak icin olusturduk
 
     @Then("facebook cookies kabul eder")
     public void facebook_cookies_kabul_eder() {

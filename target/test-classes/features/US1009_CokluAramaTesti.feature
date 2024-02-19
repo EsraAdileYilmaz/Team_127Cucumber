@@ -21,3 +21,4 @@ Feature: US1009 Kullanici coklu arama yapar
 
     # Eger bir eleman degil, birden fazla eleman aratmak istiyorsak
     # Scenario yerine Scenario Outline kullaniriz.
+    #Birden fazla kelime yazmak icin List'in elmasi icinde "<aranacakKelimeler>" yazilmalidir

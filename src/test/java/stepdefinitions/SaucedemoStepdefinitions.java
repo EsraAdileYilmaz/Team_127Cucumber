@@ -8,7 +8,7 @@ import pages.SaucedemoPage;
 public class SaucedemoStepdefinitions {
 
 
-    SaucedemoPage saucedemoPage=new SaucedemoPage();
+    SaucedemoPage saucedemoPage=new SaucedemoPage();//Bu objeyi pages package'deki locatelere ulasmak icin olusturduk
     String ilkUrunIsim;
 
     @Then("saucedemo username kutusuna {string} yazar")
@@ -28,8 +28,8 @@ public class SaucedemoStepdefinitions {
     }
     @Then("ilk urunun ismini kaydeder ve bu urunun sayfasina gider")
     public void ilk_urunun_ismini_kaydeder_ve_bu_urunun_sayfasina_gider() {
-       ilkUrunIsim=saucedemoPage.ilkUrunIsim.getText();
-       saucedemoPage.ilkUrunIsim.click();
+       ilkUrunIsim=saucedemoPage.ilkUrunIsimElementi.getText();
+       saucedemoPage.ilkUrunIsimElementi.click();
 
     }
     @When("saucedemo add to Cart butonuna basar")
