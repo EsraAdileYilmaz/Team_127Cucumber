@@ -31,5 +31,6 @@ public class TrendyolPage {
 
     @FindBy(xpath = "//*[@data-testid='register-button']")
     public WebElement signupButonu;
+    //
 
 }
