@@ -26,7 +26,8 @@ public class ReusableMethods {
          stringlerListesi.add(each.getText());
         }
         return stringlerListesi;
-    }
+    }//WebElementlerden olusan listeyi Stringlerden olusan listeye cevirme metodu
+    //List<String> baslikElementleri =ReusableMethods.stringListeDonustur(baslikElementleriListi);
 
 
 
@@ -57,10 +58,9 @@ public class ReusableMethods {
                break;//title'lar esit oldugunda loop'u durdur.birak.
             }
         }
-     //bu methodla istenilen kadar whd verilse bile, icinden hedefSayfaTitle'ini bulup,
-     //driver direk o window'a gecer.
 
-    }
+    }//Bu methodla istenilen kadar whd verilse bile icinden hedefSayfaTitle'ini bulup
+    //driver direk o window'a gecer.
 
 
 

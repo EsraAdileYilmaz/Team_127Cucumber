@@ -35,9 +35,4 @@ public class SaucedemoPage {
     @FindBy(className = "inventory_item_name")
     public WebElement sepettekiUrunIsimElementi;
 
-
-
-
-
-
 }

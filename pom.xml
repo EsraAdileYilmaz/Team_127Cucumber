@@ -18,17 +18,6 @@
     <dependencies>
 
 
-
-
-
-
-
-
-
-
-
-
-
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -43,7 +32,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.6.2</version>
         </dependency>
-
 
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
@@ -63,15 +51,12 @@
         </dependency>
 
 
-
         <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
-
-
 
 
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
@@ -82,30 +67,12 @@
         </dependency>
 
 
-
-
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.2.4</version>
         </dependency>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </dependencies>
@@ -132,10 +99,11 @@
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
                                 <param>**/json-reports/*.json</param>
-                            </jsonFiles><classificationFiles>->
-                            <param>sample.properties</param>
-                            <param>other.properties</param>
-                        </classificationFiles>
+                            </jsonFiles>
+                            <classificationFiles>->
+                                <param>sample.properties</param>
+                                <param>other.properties</param>
+                            </classificationFiles>
                         </configuration>
                     </execution>
                 </executions>
@@ -162,7 +130,8 @@
                 <configuration>
                     <parallel>classes</parallel>
                     <forkMode>perthread</forkMode>
-                    <threadCount>1</threadCount> <!--Bu satir icine yazilan sayi ayni anda calistirilmak istenen browser sayisini verir (Ayni anda calisacak thread sayisi) -->
+                    <threadCount>1
+                    </threadCount> <!--Bu satir icine yazilan sayi ayni anda calistirilmak istenen browser sayisini verir (Ayni anda calisacak thread sayisi) -->
                     <reuseForks>false</reuseForks>
                     <argLine>-Duser.language=en</argLine>
                     <argLine>-Xmx1024m</argLine>
@@ -182,11 +151,7 @@
         </plugins>
 
 
-
-
     </build>
-
-
 
 
 </project>

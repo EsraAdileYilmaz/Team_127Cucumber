@@ -7,16 +7,18 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        plugin = {"html:target/html-reports/rapor.html",//bu satirdaki rapor kelimesi yerine istenen yazilabilir.ornegin smoke test rapor vb.
-                  "json:target/json-reports/cucumber.json",
-                  "junit:target/xml-report/cucumber.xml"},
-        features = "src/test/resources/features", // calisacak Feature/Scenario'lar nerede ? features dosyalarinin altinda "src/test/resources/features"
-        glue = "stepdefinitions" ,    // calisacak Feature/Scenario'larin kodlari nerede? kodlarin yerini gosterir
+        plugin = {
+                "pretty",
+                "html:target/html-reports/rapor.html",//bu satirdaki rapor kelimesi yerine istenen yazilabilir.ornegin smoke test rapor vb.
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"},
+        features = "src/test/resources/features", // calisacak Feature/Scenario'lar nerede ? features dosyalarinin altinda Path from Repository Root= "src/test/resources/features"
+        glue = "stepdefinitions",    // calisacak Feature/Scenario'larin kodlari nerede? kodlarin yerini gosterir
         tags = "@wip",  // hangi Feature/Scenario'lar calisacak ?
         dryRun = false // true yapilirsa testi calistirmadan eksik adimlari verir.Sadece eksik adimlari kontrol eder
-                      // testleri calistirirken dryRun = false olmalidir.
+                       // testleri calistirirken dryRun = false olmalidir.
 
-   )
+)
 
 public class Runner {
 

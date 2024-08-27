@@ -21,4 +21,4 @@ Feature: US1010 Kullanici verilen yanlis bilgilerle giris yapamaz
       |toGecersizEmail2|toGecersizPassword2|
       |toGecersizEmail3|toGecersizPassword3|
 
-    # Bu Featurede verilenEmail  ve verilenPassword lari configuration.properties'den aldi
+    # Bu Featurede verilenEmail  ve verilenPassword'lari ConfigReader yardimiyla configuration.properties'den aldi

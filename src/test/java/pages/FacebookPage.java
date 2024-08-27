@@ -22,9 +22,4 @@ public class FacebookPage {
     @FindBy(name = "websubmit")
     public WebElement yeniKayitKaydolButonu;//s'inscrire
 
-
-
-
-
-
 }
