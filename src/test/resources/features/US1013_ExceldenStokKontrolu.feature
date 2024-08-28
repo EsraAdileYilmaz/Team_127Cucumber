@@ -1,4 +1,4 @@
-Feature:
+Feature:US1013 Excel olarak verilen urunler ve min. stok miktarlari testi
 
 
 

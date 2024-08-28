@@ -7,7 +7,7 @@ import pages.HerokuPage;
 
 public class HerokuappStepdefinitions {
 
-    HerokuPage herokuPage=new HerokuPage();//Bu objeyi pages package'deki locatelere ulasmak icin olusturduk
+    HerokuPage herokuPage=new HerokuPage();//Bu objeyi HerokuPage package'deki locatelere ulasmak icin olusturduk
 
     @When("kullanici Add Element butonuna basar")
     public void kullanici_add_element_butonuna_basar() {

@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         glue = "stepdefinitions" ,    // calisacak Feature/Scenario'larin kodlari nerede?
         tags = "@P1",  // hangi Feature/Scenario'lar calisacak ?
         dryRun = false // true yapilirsa testi calistirmadan eksik adimlari verir
-        // testleri calistirirken dryRun = false olmalidir.
+                       // testleri calistirirken dryRun = false olmalidir.
 
 )
 

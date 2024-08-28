@@ -21,15 +21,4 @@ public class HerokuPage {
     @FindBy(xpath = "//*[text()='Add/Remove Elements']")
     public WebElement addRemoveYaziElementi;
 
-
-
-
-
-
-
-
-
-
-
-
 }

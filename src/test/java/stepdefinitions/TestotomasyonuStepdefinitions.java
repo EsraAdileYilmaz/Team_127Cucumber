@@ -137,8 +137,9 @@ public class TestotomasyonuStepdefinitions {
         // ve aldigimiz urun ismini testotomasyonu.com'da aratip
         // sonucunu actual stok sayisini(actualStokMiktari olarak) kaydettik
 
-        String dosyaYolu="src/test/java/utilities/stok.xlsx";//bu yolda bir dosya oldugunu gosterir
+        String dosyaYolu="src/test/java/utilities/stok.xlsx";//Copy Path Reference/Path from content root.bu yolda bir dosya oldugunu gosterir
         Workbook workbook;
+        // Workbook workbook=WorkbookFactory.create(fileInputStream) Buna alternative olarak=>  Workbook workbook=new XSSFWorkbook(fileInputStream);
         try {
 
             FileInputStream fileInputStream=new FileInputStream(dosyaYolu);//var olan dosyanin icini okuma objesi
@@ -153,7 +154,7 @@ public class TestotomasyonuStepdefinitions {
         //burada satirdaki urunlere ulasip onlari kaydettik
 
         testOtomasyonuPage.aramaKutusu.sendKeys(satirdakiUrunIsmi+ Keys.ENTER);//excel listesindeki urunleri testotomasyonunda aratip urunu bulucaz.
-        actualStokMiktari = testOtomasyonuPage.bulunanUrunElementleriList.size();//satirdaki urunun testotomasyonundaki bulunan miktarini verir
+        actualStokMiktari = testOtomasyonuPage.bulunanUrunElementleriList.size();//excell satirindaki urunun testotomasyonu sitesinde bulunan miktarini verir
     }
 
     @And("stok miktarinin {string} da verilen stok miktarindan fazla oldugunu test eder")
@@ -179,11 +180,10 @@ public class TestotomasyonuStepdefinitions {
         String minStokMiktariStr = sayfa2
                                    .getRow(Integer.parseInt(verilenSatir)-1)
                                    .getCell(1).toString();//verilen satira gittik ama string olarak
-        System.out.println(minStokMiktariStr);
-        int minStokMiktari = (int) Double.parseDouble(minStokMiktariStr);//5.0
+        System.out.println(minStokMiktariStr);//5.0
+        int minStokMiktari = (int) Double.parseDouble(minStokMiktariStr);//5.0 verdigi icin Double yaptik
 
         Assert.assertTrue(actualStokMiktari >= minStokMiktari);
-
 
     }
 
@@ -194,7 +194,7 @@ public class TestotomasyonuStepdefinitions {
         Workbook workbook;
         try {
             FileInputStream fileInputStream=new FileInputStream(dosyaYolu);
-            workbook= WorkbookFactory.create(fileInputStream);
+            workbook= WorkbookFactory.create(fileInputStream); // Workbook workbook=WorkbookFactory.create(fileInputStream) Buna alternative olarak=>  Workbook workbook=new XSSFWorkbook(fileInputStream);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
